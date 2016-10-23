@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.flash.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/layout_id"
+        style="@style/layout_style">
+
+        <TextView
+            style="@style/point_style"
+            android:text=""
+            android:id="@+id/scores"
+            />
+        <TextView
+            android:id="@+id/question_id"
+            style="@style/question_style"
+            android:text="Welcome"
+            />
+        <ImageView
+            android:id="@+id/image_id"
+            style="@style/image_style"
+            android:src="@drawable/com_example_android_flash_a"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            />
+        <EditText
+            android:id="@+id/answer"
+            style="@style/answer_style"
+            android:cursorVisible="true"
+            />
+        <Button
+            android:id="@+id/button_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Begin"
+            android:textSize="17sp"
+            android:onClick="proceed"/>
+        <TextView
+            android:id="@+id/survey_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Would You Recommend this App?"/>
+        <CheckBox
+            android:id="@+id/survey_1_R1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"/>
+        <CheckBox
+            android:id="@+id/survey_1_R2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MayBe"/>
+        <TextView
+            android:id="@+id/survey_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Would you Play Again?"/>
+        <RadioButton
+            android:id="@+id/survey_2_R1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"/>
+        <Button
+            android:id="@+id/button2_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Done"
+            android:textSize="17sp"
+            android:onClick="terminate"/>
+    </LinearLayout>
+</ScrollView>
