@@ -43,27 +43,46 @@
             android:id="@+id/survey_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Would You Recommend this App?"/>
+            android:text="Bonus: Kakapo is ..."/>
         <CheckBox
             android:id="@+id/survey_1_R1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yes"/>
+            android:text="@string/chk_choice_1"/>
         <CheckBox
             android:id="@+id/survey_1_R2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MayBe"/>
+            android:text="@string/chk_choice_2"/>
+        <CheckBox
+            android:id="@+id/survey_1_R3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_choice_3"/>
+        <CheckBox
+            android:id="@+id/survey_1_R4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chk_choice_4"/>
         <TextView
             android:id="@+id/survey_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Would you Play Again?"/>
-        <RadioButton
-            android:id="@+id/survey_2_R1"
+            android:text="Would you Recommend this app?"/>
+        <RadioGroup
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Yes"/>
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/survey_2_R1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"/>
+            <RadioButton
+                android:id="@+id/survey_2_R2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"/>
+        </RadioGroup>
         <Button
             android:id="@+id/button2_id"
             android:layout_width="wrap_content"

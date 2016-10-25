@@ -3,4 +3,8 @@
     <string name="question">What is this animal?</string>
     <string name="check">Check it!</string>
     <string name="points">Points</string>
+    <string name="chk_choice_1">A parrot</string>
+    <string name="chk_choice_2">A Hen</string>
+    <string name="chk_choice_3">Found in Guinea</string>
+    <string name="chk_choice_4">Nocturnal</string>
 </resources>

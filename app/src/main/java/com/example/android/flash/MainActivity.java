@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Field;
 
@@ -39,15 +40,21 @@ public class MainActivity extends AppCompatActivity {
         TextView survey_2    = (TextView) findViewById(R.id.survey_2) ;
         CheckBox survey_1_R1    = (CheckBox) findViewById(R.id.survey_1_R1) ;
         CheckBox survey_1_R2    = (CheckBox) findViewById(R.id.survey_1_R2) ;
+        CheckBox survey_1_R3    = (CheckBox) findViewById(R.id.survey_1_R3) ;
+        CheckBox survey_1_R4    = (CheckBox) findViewById(R.id.survey_1_R4) ;
         RadioButton survey_2_R1 = (RadioButton) findViewById(R.id.survey_2_R1) ;
+        RadioButton survey_2_R2 = (RadioButton) findViewById(R.id.survey_2_R2) ;
         Button complete_button = (Button) findViewById(R.id.button2_id) ;
         points_view.setVisibility(View.GONE);
         answer_view.setVisibility(View.GONE);
         survey_1.setVisibility(View.GONE);
         survey_1_R1.setVisibility(View.GONE);
         survey_1_R2.setVisibility(View.GONE);
+        survey_1_R3.setVisibility(View.GONE);
+        survey_1_R4.setVisibility(View.GONE);
         survey_2.setVisibility(View.GONE);
         survey_2_R1.setVisibility(View.GONE);
+        survey_2_R2.setVisibility(View.GONE);
         complete_button.setVisibility(View.GONE);
     }
     private String[] getResourceNames(){
@@ -78,8 +85,15 @@ public class MainActivity extends AppCompatActivity {
             String response = prefix + answer_view.getText().toString().toLowerCase();
             Log.i("Image Name: ",image_Names[img_idx]);
             Log.i("Resps Name: ",response);
-            if(image_Names[img_idx].equals(response))
+            if(image_Names[img_idx].equals(response)){
                 points++;
+                Toast toast = Toast.makeText(this,"You nailed it...Congrats!",Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            else{
+                Toast toast = Toast.makeText(this,image_Names[img_idx].replaceAll("com_example_android_flash_",""),Toast.LENGTH_SHORT);
+                toast.show();
+            }
             displayUpdatedPoints();
             displayNextImage();
         }
@@ -102,7 +116,10 @@ public class MainActivity extends AppCompatActivity {
             TextView survey_2    = (TextView) findViewById(R.id.survey_2) ;
             CheckBox survey_1_R1    = (CheckBox) findViewById(R.id.survey_1_R1) ;
             CheckBox survey_1_R2    = (CheckBox) findViewById(R.id.survey_1_R2) ;
+            CheckBox survey_1_R3    = (CheckBox) findViewById(R.id.survey_1_R3) ;
+            CheckBox survey_1_R4    = (CheckBox) findViewById(R.id.survey_1_R4) ;
             RadioButton survey_2_R1 = (RadioButton) findViewById(R.id.survey_2_R1) ;
+            RadioButton survey_2_R2 = (RadioButton) findViewById(R.id.survey_2_R2) ;
             Button complete_button = (Button) findViewById(R.id.button2_id) ;
             button.setVisibility(View.GONE);
             imgView.setVisibility(View.GONE);
@@ -111,9 +128,18 @@ public class MainActivity extends AppCompatActivity {
             survey_1.setVisibility(View.VISIBLE);
             survey_1_R1.setVisibility(View.VISIBLE);
             survey_1_R2.setVisibility(View.VISIBLE);
+            survey_1_R3.setVisibility(View.VISIBLE);
+            survey_1_R4.setVisibility(View.VISIBLE);
             survey_2.setVisibility(View.VISIBLE);
             survey_2_R1.setVisibility(View.VISIBLE);
+            survey_2_R2.setVisibility(View.VISIBLE);
             complete_button.setVisibility(View.VISIBLE);
+            survey_1_R1.setActivated(false);
+            survey_1_R2.setActivated(false);
+            survey_1_R3.setActivated(false);
+            survey_1_R4.setActivated(false);
+            survey_2_R1.setActivated(false);
+            survey_2_R2.setActivated(false);
         }
     }
     public void terminate(View view){
@@ -121,22 +147,33 @@ public class MainActivity extends AppCompatActivity {
         TextView survey_2    = (TextView) findViewById(R.id.survey_2) ;
         CheckBox survey_1_R1    = (CheckBox) findViewById(R.id.survey_1_R1) ;
         CheckBox survey_1_R2    = (CheckBox) findViewById(R.id.survey_1_R2) ;
+        CheckBox survey_1_R3    = (CheckBox) findViewById(R.id.survey_1_R3) ;
+        CheckBox survey_1_R4    = (CheckBox) findViewById(R.id.survey_1_R4) ;
         RadioButton survey_2_R1 = (RadioButton) findViewById(R.id.survey_2_R1) ;
+        RadioButton survey_2_R2 = (RadioButton) findViewById(R.id.survey_2_R2) ;
         Button complete_button = (Button) findViewById(R.id.button2_id) ;
-        String message = "Would You Recommend this App?";
-        if(survey_1_R1.isChecked())
-            message += "\tYes";
-        if(survey_1_R2.isChecked())
-            message += "\tNo\n";
-        survey_1.setText("Feedback");
-        message += "Would you Play Again?";
-        if(survey_2_R1.isChecked())
-            message += " Yes";
-        survey_2.setText(message);
+        survey_1.setText("Bonus: Kakapo is ....");
+        if(survey_1_R1.isChecked() && survey_1_R4.isChecked() && !survey_1_R2.isChecked() && !survey_1_R3.isChecked()){
+            Toast toast = Toast.makeText(this, "You are Awesome...Congrats!",Toast.LENGTH_SHORT);
+            toast.show();
+            survey_1.setText("You did great... Learn more!");
+        }else{
+            Toast toast = Toast.makeText(this, "Kakapo is a nocturnal, flightless parrot endemic to Newzealand",Toast.LENGTH_SHORT);
+            toast.show();
+            survey_1.setText("Kakapo is a nocturnal, flightless parrot endemic to Newzealand");
+        }
+
+
+        survey_2.setText("Would you Play Again?");
+        if(survey_2_R1.isChecked()){survey_2.setText("Thank You...!");}
+        else {survey_2.setText("Thank you... We will thrive to make it better!");}
         survey_1_R1.setVisibility(View.GONE);
         survey_1_R2.setVisibility(View.GONE);
+        survey_1_R3.setVisibility(View.GONE);
+        survey_1_R4.setVisibility(View.GONE);
         survey_2_R1.setVisibility(View.GONE);
-        complete_button.setText("Thank You!");
+        survey_2_R2.setVisibility(View.GONE);
+        complete_button.setVisibility(View.GONE);
     }
     private void displayUpdatedPoints(){
         TextView points_view = (TextView) findViewById(R.id.scores);
