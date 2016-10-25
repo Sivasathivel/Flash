@@ -19,9 +19,6 @@ public class MainActivity extends AppCompatActivity {
     String prefix = "com_example_android_flash_";
     boolean first = true;
     int img_idx   = 0;
-    boolean isInteresting  = false;
-    boolean wasBored       = false;
-    boolean wouldRecommend = true;
     //The quiz data
     Field [] drawables = R.drawable.class.getFields();
     String [] image_Names = getResourceNames();
@@ -154,25 +151,32 @@ public class MainActivity extends AppCompatActivity {
         Button complete_button = (Button) findViewById(R.id.button2_id) ;
         survey_1.setText("Bonus: Kakapo is ....");
         if(survey_1_R1.isChecked() && survey_1_R4.isChecked() && !survey_1_R2.isChecked() && !survey_1_R3.isChecked()){
-            Toast toast = Toast.makeText(this, "You are Awesome...Congrats!",Toast.LENGTH_SHORT);
-            toast.show();
-            survey_1.setText("You did great... Learn more!");
+            points++;
+            displayUpdatedPoints();
+            //survey_1.setText("You did great... Learn more!");
         }else{
-            Toast toast = Toast.makeText(this, "Kakapo is a nocturnal, flightless parrot endemic to Newzealand",Toast.LENGTH_SHORT);
-            toast.show();
-            survey_1.setText("Kakapo is a nocturnal, flightless parrot endemic to Newzealand");
+            Toast.makeText(this, "Kakapo is a nocturnal, flightless parrot endemic to Newzealand",Toast.LENGTH_SHORT).show();
         }
 
 
-        survey_2.setText("Would you Play Again?");
-        if(survey_2_R1.isChecked()){survey_2.setText("Thank You...!");}
-        else {survey_2.setText("Thank you... We will thrive to make it better!");}
-        survey_1_R1.setVisibility(View.GONE);
+        survey_2.setText("HagFish defence Mechanism is ");
+        survey_2_R1.setText("Slime");
+        survey_2_R2.setText("Electrocution");
+        if(survey_2_R1.isChecked()){
+            points++;
+            displayUpdatedPoints();
+            survey_2.setText("Thank You...!");
+        }
+        else {
+            survey_2.setText("Thank you... We will thrive to make it better!");
+        }
+        Toast.makeText(this, "Total Score: " + points, Toast.LENGTH_SHORT);
+        /*survey_1_R1.setVisibility(View.GONE);
         survey_1_R2.setVisibility(View.GONE);
         survey_1_R3.setVisibility(View.GONE);
         survey_1_R4.setVisibility(View.GONE);
         survey_2_R1.setVisibility(View.GONE);
-        survey_2_R2.setVisibility(View.GONE);
+        survey_2_R2.setVisibility(View.GONE);*/
         complete_button.setVisibility(View.GONE);
     }
     private void displayUpdatedPoints(){

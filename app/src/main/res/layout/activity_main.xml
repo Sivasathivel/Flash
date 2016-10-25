@@ -68,7 +68,7 @@
             android:id="@+id/survey_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Would you Recommend this app?"/>
+            android:text="Defense Mechanism of HagFish is "/>
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -76,12 +76,12 @@
                 android:id="@+id/survey_2_R1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yes"/>
+                android:text="Slime"/>
             <RadioButton
                 android:id="@+id/survey_2_R2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No"/>
+                android:text="Electrocution"/>
         </RadioGroup>
         <Button
             android:id="@+id/button2_id"
