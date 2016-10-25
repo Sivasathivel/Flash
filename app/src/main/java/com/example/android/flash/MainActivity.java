@@ -1,5 +1,6 @@
 package com.example.android.flash;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -24,9 +25,16 @@ public class MainActivity extends AppCompatActivity {
     String [] image_Names = getResourceNames();
 
     @Override
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
         /*
             Disable Points and EditText until, begin is pressed.
             Adjust Layout Height
@@ -157,26 +165,21 @@ public class MainActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this, "Kakapo is a nocturnal, flightless parrot endemic to Newzealand",Toast.LENGTH_SHORT).show();
         }
-
-
         survey_2.setText("HagFish defence Mechanism is ");
         survey_2_R1.setText("Slime");
         survey_2_R2.setText("Electrocution");
         if(survey_2_R1.isChecked()){
             points++;
             displayUpdatedPoints();
+            Toast.makeText(this, "Total Score: " + points, Toast.LENGTH_LONG).show();
             survey_2.setText("Thank You...!");
+
         }
         else {
             survey_2.setText("Thank you... We will thrive to make it better!");
+            Toast.makeText(this, "Total Score: " + points, Toast.LENGTH_LONG).show();
         }
-        Toast.makeText(this, "Total Score: " + points, Toast.LENGTH_SHORT);
-        /*survey_1_R1.setVisibility(View.GONE);
-        survey_1_R2.setVisibility(View.GONE);
-        survey_1_R3.setVisibility(View.GONE);
-        survey_1_R4.setVisibility(View.GONE);
-        survey_2_R1.setVisibility(View.GONE);
-        survey_2_R2.setVisibility(View.GONE);*/
+        Toast.makeText(this, "Total Score: " + points, Toast.LENGTH_LONG).show();
         complete_button.setVisibility(View.GONE);
     }
     private void displayUpdatedPoints(){
